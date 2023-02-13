@@ -1,1 +1,59 @@
+{ "extensionName":"7Segment",
+	"description":"Allow communication with 7Segment",
+    "version": "1.0.0",
+	"author":"Dr.Dadjouyan",
+	"homepage":"",
+	"sort":0,
+	"extensionType":"serial",
+	"javascriptURL":"js/SevenSegment.js",
+	"firmware":"1.0.0",
+	"extensionPort":"0",
+	"blockSpecs": [
+	[
+       "w",
+       "Set a %n, b %n, c %n, d %n, e %n, f %n, g %n, dot %n",
+	   "setPins",
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+	   8,
+	   9,
+       {      
+	    "setup":"pinMode(a,OUTPUT);\npinMode(b,OUTPUT);\npinMode(c,OUTPUT);\npinMode(d,OUTPUT);\npinMode(e,OUTPUT);\npinMode(f,OUTPUT);\npinMode(g,OUTPUT);\npinMode(dot,OUTPUT);\n",
+        "inc": "#define a {0}\n#define b {1}\n#define c {2}\n#define d {3}\n#define e {4}\n#define f {5}\n#define g {6}\n#define dot {7}\n",
+		"def": "",
+        "work": "",
+        "loop": ""
+       }
+     ],
+	 [
+       "w",
+       "Show %d.digital",
+	   "ShowNumber",
+       "LOW",
+       {      
+	     "setup":"",
+         "inc": "",
+		 "def": "void Initial(int Num){\n switch (Num) {\n  case 0: digitalWrite(a,HIGH);digitalWrite(b,HIGH);digitalWrite(c,HIGH);digitalWrite(d,HIGH);digitalWrite(e,HIGH);digitalWrite(f,HIGH);digitalWrite(g,LOW);digitalWrite(dot,LOW);break;\n  case 1:digitalWrite(a,LOW);digitalWrite(b,HIGH);digitalWrite(c,HIGH);digitalWrite(d,LOW);digitalWrite(e,LOW);digitalWrite(f,LOW);digitalWrite(g,LOW);digitalWrite(dot,LOW);break;\n  case 2: digitalWrite(a,HIGH);digitalWrite(b,HIGH);digitalWrite(c,LOW);digitalWrite(d,HIGH);digitalWrite(e,HIGH);digitalWrite(f,LOW);digitalWrite(g,HIGH);digitalWrite(dot,LOW);break;\n  case 3: digitalWrite(a,HIGH);digitalWrite(b,HIGH);digitalWrite(c,HIGH);digitalWrite(d,HIGH);digitalWrite(e,LOW);digitalWrite(f,LOW);digitalWrite(g,HIGH);digitalWrite(dot,LOW);break;\n   case 4: digitalWrite(a,LOW);digitalWrite(b,HIGH);digitalWrite(c,HIGH);digitalWrite(d,LOW);digitalWrite(e,LOW);digitalWrite(f,HIGH);digitalWrite(g,HIGH);digitalWrite(dot,LOW);break;\n   case 5: digitalWrite(a,HIGH);digitalWrite(b,LOW);digitalWrite(c,HIGH);digitalWrite(d,HIGH);digitalWrite(e,LOW);digitalWrite(f,HIGH);digitalWrite(g,HIGH);digitalWrite(dot,LOW);break;\n   case 6: digitalWrite(a,HIGH);digitalWrite(b,LOW);digitalWrite(c,HIGH);digitalWrite(d,HIGH);digitalWrite(e,HIGH);digitalWrite(f,HIGH);digitalWrite(g,HIGH);digitalWrite(dot,LOW);break;\n   case 7: digitalWrite(a,HIGH);digitalWrite(b,HIGH);digitalWrite(c,HIGH);digitalWrite(d,LOW);digitalWrite(e,LOW);digitalWrite(f,LOW);digitalWrite(g,LOW);digitalWrite(dot,LOW);break;\n   case 8: digitalWrite(a,HIGH);digitalWrite(b,HIGH);digitalWrite(c,HIGH);digitalWrite(d,HIGH);digitalWrite(e,HIGH);digitalWrite(f,HIGH);digitalWrite(g,HIGH);digitalWrite(dot,LOW);break;\n   case 9: digitalWrite(a,HIGH);digitalWrite(b,HIGH);digitalWrite(c,HIGH);digitalWrite(d,HIGH);digitalWrite(e,LOW);digitalWrite(f,HIGH);digitalWrite(g,HIGH);digitalWrite(dot,LOW);break;\n}\n};\n",
+         "work": "Initial({0});\n",
+         "loop": ""
+       }
+     ]
+	 
+ 
+	],
+	"menus":{
+        "digital":["0","1","2","3","4","5","6","7","8"],
+       
+    },
+	"values":{
+        "HIGH":1,
+        "LOW":0,
+    },
 
+	"translators":{
+	}
+}
